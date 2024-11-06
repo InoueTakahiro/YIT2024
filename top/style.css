@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+/* 共通のレイアウトを記述する */
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover{
+    color: #f00;
+}
+
+
+/* header */
+header{
+    display: flex;
+    /* ﾌﾚｯｸｽﾚｲｱｳﾄ時、縦位置揃え */
+    align-items: center;
+}
+
+nav{
+    /* ul,li含めて右寄せ */
+    /* ↑→↓ 余白無し ： ← ご勝手に */
+    margin: 0 0 0 auto;
+}
+nav ul, footer ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li, footer ul li{
+    display: block;
+    padding: 0 1.5em;
+    margin: 1em 0;
+    border-right: 1px solid #ccc;
+    white-space: nowrap;
+}
+
+nav ul li:last-child{
+    border-right: none;
+}
+
+
+@media screen and (max-width: 767px) {
+    /* ウィンドウ横幅が767px以下の場合 */
+    /* スマホ用設定 */
+    header{
+        display: block;
+    }
+    header h1{
+        text-align: center;
+    }
+    nav ul{
+        /* フレックスではみ出た物は下へ */
+        flex-wrap: wrap;
+    }
+    nav ul li, footer ul li{
+        /* 余白・枠線全て含めて横幅7/10％ */
+        box-sizing: border-box;
+        width: calc(100% / 7);
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        text-align: center;
+    }
+    /* 最後のli「学校情報」だけ特別デザイン */
+    nav ul li:last-child{
+        width: 100%;
+        background: #00b6bd;
+        color: #ffffff;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
+    nav ul li:nth-child(7){
+        border-right: none;
+    }
+}
+
+/* main */
+
+
+
+/* footer */
+footer{
+    text-align: center;
+}
+
+footer ul li:last-child{
+    border-right: none;
+}
